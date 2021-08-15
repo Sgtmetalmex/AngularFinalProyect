@@ -15,4 +15,8 @@ export class DatabaseService {
   public Login(user: any) {
     return this.http.post(this.serviceUrl + '/api/ValidateUsers', user);
   }
+
+  public GetTables(){
+    return this.http.get(this.serviceUrl + '/api/GetAll')
+  }
 }

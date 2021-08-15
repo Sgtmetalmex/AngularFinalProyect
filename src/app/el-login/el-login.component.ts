@@ -38,4 +38,5 @@ export class ElLoginComponent implements OnInit {
       this.loadingPanel.hide();
     });
   }
+  
 }

@@ -1,3 +1,130 @@
 <app-el-nav-bar></app-el-nav-bar>
-<router-outlet></router-outlet>
+<br>
+
+    <div class="ml-5 mb-5 mr-5 card col-10" id="mTable"  style="box-sizing: content-box;">
+        <div class="card-body">
+            <h3 class="card-title">Management</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Creation Date</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Password</th>
+                        <th scope="col"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let manageItem of managerList">
+                        <th id="idManagement">{{manageItem.idManagement}}</th>
+                        <td id="nameMana">{{manageItem.name}}</td>
+                        <td id="addressMana">{{manageItem.address}}</td>
+                        <td id="emailMana">{{manageItem.email}}</td>
+                        <td id="creationDateMana">{{manageItem.creationDate}}</td>
+                        <td id="position">{{manageItem.position}}</td>
+                        <td id="password">{{manageItem.password}}</td>
+                        <td> <button class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mr-5 mb-5 ml-5 card col-5" id="gTable"  style="box-sizing: content-box;">
+        <div class="card-body">
+            <h3 class="card-title">Groups</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Creation Date</th>
+                        <th scope="col"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let groupItem of groupList">
+                        <th id="idGroup">{{groupItem.idGroup}}</th>
+                        <td id="name">{{groupItem.name}}</td>
+                        <td id="creationDate">{{groupItem.creationDate}}</td>
+                        <td> <button class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ml-5 mb-5 mr-5 card col-5" id="tTable"  style="box-sizing: content-box;">
+        <div class="card-body">
+            <h3 class="card-title">Teachers</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Telephone</th>
+                        <th scope="col">Group</th>
+                        <th scope="col"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let teacherItem of teacherList">
+                        <th id="idTeacher">{{teacherItem.idTeacher}}</th>
+                        <td id="name">{{teacherItem.name}}</td>
+                        <td id="address">{{teacherItem.address}}</td>
+                        <td id="telephone">{{teacherItem.telephone}}</td>
+                        <td id="group">{{teacherItem.groupId}}</td>
+                        <td> <button class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="mr-5 mb-5 ml-5 card col-11" id="sTable"  style="box-sizing: content-box;">
+        <div class="card-body">
+            <h3 class="card-title">Schools</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Register Number</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Telephone</th>
+                        <th scope="col">School Zone</th>
+                        <th scope="col">Creation Date</th>
+                        <th scope="col">Director</th>
+                        <th scope="col"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let schoolItem of schoolList">
+                        <th id="idSchool">{{schoolItem.idSchool}}</th>
+                        <td id="name">{{schoolItem.name}}</td>
+                        <td id="registerNumber">{{schoolItem.registerNumber}}</td>
+                        <td id="address">{{schoolItem.address}}</td>
+                        <td id="telephone">{{schoolItem.telephone}}</td>
+                        <td id="schoolZone">{{schoolItem.schoolZone}}</td>
+                        <td id="creationDate">{{schoolItem.creationDate}}</td>
+                        <td id="director">{{schoolItem.director}}</td>
+                        <td> <button class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<div class="pt-5 pb-5 ">
+</div>
+
 <app-el-footer></app-el-footer>

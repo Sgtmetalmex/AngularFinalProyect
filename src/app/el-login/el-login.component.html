@@ -1,7 +1,7 @@
 <div class="content-wrapper">
-  <div class="wrapper fadeInDown">
+  <div class="wrapper fadeInDown " id="login">
     <div class="mt-5 mb-5 d-flex justify-content-center">
-      <div class="card col-4">
+      <div class="card col-4 ">
         <div class="card-body">
           <div id="formContent">
               <div class="form-group  fadeIn first">
@@ -12,8 +12,8 @@
                 <label>Password</label>
                 <input type="password" class="form-control" placeholder="Enter your Password" [(ngModel)]="pass" >
               </div>
-              <button type="button" (click)="ValidateUser()" class="btn btn-primary fadeIn third">Log-In</button>
-          </div>
+              <button type="button"  (click)="ValidateUser()" class="btn btn-primary border-dark fadeIn third bg-dark">Log-In</button>
+            </div>
         </div>
       </div>
     </div>
