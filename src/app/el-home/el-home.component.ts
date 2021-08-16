@@ -13,12 +13,17 @@ export class ElHomeComponent implements OnInit {
     public db: DatabaseService,
     public loadingPanel: LoadingService
   ) { }
-
+  rows: any =[];
   managerList: any = [];
   groupList: any = [];
   teacherList: any = [];
   schoolList: any = [];
   public newManager: any = {};
+  public newGroup: any = {};
+  public newSchool: any = {};
+  public newTeacher: any = {};
+
+
 
 
   ngOnInit(): void {
@@ -36,7 +41,31 @@ export class ElHomeComponent implements OnInit {
     });
   }
 
-  AddManager(){
-      this.newManager = {};
+  AddManager() {
+    this.db.AddNewManager(this.newManager).subscribe((response: any) => {
+
+      response > 0 ? window.location.reload() : alert("No Rows Inserted");
+    });
+  }
+
+  AddGroup() {
+    this.db.AddNewGroup(this.newGroup).subscribe((response: any) => {
+
+      response > 0 ? window.location.reload() : alert("No Rows Inserted");
+    });
+  }
+
+  AddTeacher() {
+    this.db.AddNewTeacher(this.newTeacher).subscribe((response: any) => {
+
+      response > 0 ? window.location.reload() : alert("No Rows Inserted");
+    });
+  }
+
+  AddSchool() {
+    this.db.AddNewSchool(this.newSchool).subscribe((response: any) => {
+
+      response > 0 ? window.location.reload() : alert("No Rows Inserted");
+    });
   }
 }

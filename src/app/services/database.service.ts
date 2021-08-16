@@ -19,4 +19,20 @@ export class DatabaseService {
   public GetTables(){
     return this.http.get(this.serviceUrl + '/api/GetAll')
   }
+
+  public AddNewManager(row: any){
+    return this.http.post(this.serviceUrl + '/api/AddManagement',row)
+  }
+
+  public AddNewGroup(row: any){
+    return this.http.post(this.serviceUrl + '/api/AddGroup',row)
+  }
+
+  public AddNewTeacher(row: any){
+    return this.http.post(this.serviceUrl + '/api/AddTeacher',row)
+  }
+
+  public AddNewSchool(row: any){
+    return this.http.post(this.serviceUrl + '/api/AddSchool',row)
+  }
 }

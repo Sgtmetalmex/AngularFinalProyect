@@ -1,7 +1,7 @@
 <app-el-nav-bar></app-el-nav-bar>
 <br>
 
-    <div class="ml-5 mb-5 mr-5 card col-10" id="mTable"  style="box-sizing: content-box;">
+    <div class="ml-5 mb-5 mr-5 card col-11" id="mTable"  style="box-sizing: content-box;">
         <div class="card-body">
             <h3 class="card-title">Management</h3>
             <table class="table">
@@ -10,34 +10,51 @@
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
                         <th scope="col">Address</th>
+                        <th scope="col">Telephone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Creation Date</th>
                         <th scope="col">Position</th>
                         <th scope="col">Password</th>
                         <th scope="col"></th>
-
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let manageItem of managerList">
                         <th id="idManagement">{{manageItem.idManagement}}</th>
-                        <td id="nameMana">{{manageItem.name}}</td>
-                        <td id="addressMana">{{manageItem.address}}</td>
-                        <td id="emailMana">{{manageItem.email}}</td>
+                        <td id="nameMana">
+                            <input ng-model="manageItem.name" value="{{manageItem.name}}"/>
+                        </td>
+                        <td id="addressMana">
+                            <input ng-model="manageItem.address" value="{{manageItem.address}}" size="10"/>
+                        </td>
+                        <td id="telephoneMana">
+                            <input ng-model="manageItem.telephone" value="{{manageItem.telephone}}" size="10"/>
+                        </td>
+                        <td id="emailMana">
+                            <input ng-model="manageItem.email" value="{{manageItem.email}}" size="15"/>
+                        </td>
                         <td id="creationDateMana">{{manageItem.creationDate}}</td>
-                        <td id="position">{{manageItem.position}}</td>
-                        <td id="password">{{manageItem.password}}</td>
-                        <td> <button class="btn btn-danger">Delete</button></td>
+                        <td id="position">
+                            <input ng-model="manageItem.position" value="{{manageItem.position}}" size="1"/>
+                        </td>
+                        <td id="password">
+                            <input ng-model="manageItem.position" value="{{manageItem.password}}" size="10"/>
+                        </td>
+                        <td> <button class="btn btn-danger btn-sm">Delete</button></td>
+                        <td> <button class="btn btn-warning btn-sm">Update</button></td>
+
                     </tr>
                     <tr>    
                         <td></td>
                         <td><input class="form-control" type="text" id="newName" [(ngModel)]="newManager.name" name="newName" /></td>
                         <td><input class="form-control" type="text" id="newAddress" [(ngModel)]="newManager.address" name="newAddres"/></td>
+                        <td><input class="form-control" type="text" id="newTelephone" [(ngModel)]="newManager.telephone" name="newTelephone"/></td>
                         <td><input class="form-control" type="text" id="newEmail" [(ngModel)]="newManager.email" name="newEmail"/></td>
-                        <td><input class="form-control" type="text" id="newCreationDate" [(ngModel)]="newManager.creationDate" name="newCreationDate"/></td>
-                        <td><input class="form-control" type="text" id="newPosition" [(ngModel)]="newManager.postition" name="newPosition"/></td>
+                        <td></td>
+                        <td><input class="form-control" type="text" id="newPosition" [(ngModel)]="newManager.position" name="newPosition"/></td>
                         <td><input class="form-control" type="text" id="newPassword" [(ngModel)]="newManager.password" name="newPassword"/></td>
-                        <td><button class="btn btn-primary" type="button" (click)="AddManager()">Add</button></td>
+                        <td><button class="btn btn-success btn-sm" type="button" (click)="AddManager()">Add</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -54,7 +71,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Creation Date</th>
                         <th scope="col"></th>
-
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,14 +79,21 @@
                         <th id="idGroup">{{groupItem.idGroup}}</th>
                         <td id="name">{{groupItem.name}}</td>
                         <td id="creationDate">{{groupItem.creationDate}}</td>
-                        <td> <button class="btn btn-danger">Delete</button></td>
+                        <td> <button class="btn btn-danger btn-sm">Delete</button></td>
+                        <td> <button class="btn btn-warning btn-sm">Update</button></td>
+                    </tr>
+                    <tr>    
+                        <td></td>
+                        <td><input class="form-control" type="text" id="newName" [(ngModel)]="newGroup.name" name="newName" /></td>
+                        <td></td>
+                        <td><button class="btn btn-success btn-sm" type="button" (click)="AddGroup()">Add</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="ml-5 mb-5 mr-5 card col-5" id="tTable"  style="box-sizing: content-box;">
+    <div class="ml-5 mb-5 mr-5 card col-6" id="tTable"  style="box-sizing: content-box;">
         <div class="card-body">
             <h3 class="card-title">Teachers</h3>
             <table class="table">
@@ -81,7 +105,7 @@
                         <th scope="col">Telephone</th>
                         <th scope="col">Group</th>
                         <th scope="col"></th>
-
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -91,7 +115,16 @@
                         <td id="address">{{teacherItem.address}}</td>
                         <td id="telephone">{{teacherItem.telephone}}</td>
                         <td id="group">{{teacherItem.groupId}}</td>
-                        <td> <button class="btn btn-danger">Delete</button></td>
+                        <td> <button class="btn btn-danger btn-sm">Delete</button></td>
+                        <td> <button class="btn btn-warning btn-sm">Update</button></td>
+                    </tr>
+                    <tr>    
+                        <td></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newTeacher.name" name="" /></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newTeacher.address" name="" /></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newTeacher.telephone" name="" /></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newTeacher.groupId" name="" /></td>
+                        <td><button class="btn btn-success btn-sm" type="button" (click)="AddTeacher()">Add</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -114,7 +147,7 @@
                         <th scope="col">Creation Date</th>
                         <th scope="col">Director</th>
                         <th scope="col"></th>
-
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -127,7 +160,19 @@
                         <td id="schoolZone">{{schoolItem.schoolZone}}</td>
                         <td id="creationDate">{{schoolItem.creationDate}}</td>
                         <td id="director">{{schoolItem.director}}</td>
-                        <td> <button class="btn btn-danger">Delete</button></td>
+                        <td> <button class="btn btn-danger btn-sm">Delete</button></td>
+                        <td> <button class="btn btn-warning btn-sm">Update</button></td>
+                    </tr>
+                    <tr>    
+                        <td></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newSchool.name" name="" /></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newSchool.registerNumber" name="" /></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newSchool.address" name="" /></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newSchool.telephone" name="" /></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newSchool.zone" name="" /></td>
+                        <td></td>
+                        <td><input class="form-control" type="text" id="" [(ngModel)]="newSchool.director" name="" /></td>
+                        <td><button class="btn btn-success btn-sm" type="button" (click)="AddSchool()">Add</button></td>
                     </tr>
                 </tbody>
             </table>
