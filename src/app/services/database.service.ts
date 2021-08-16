@@ -35,4 +35,36 @@ export class DatabaseService {
   public AddNewSchool(row: any){
     return this.http.post(this.serviceUrl + '/api/AddSchool',row)
   }
+
+  public DeleteManager(idManagement: any){
+    return this.http.delete<any>(this.serviceUrl + `/api/DeleteManager${idManagement}`,)
+  }
+
+  public DeleteGroup(idGroup: any){
+    return this.http.delete<any>(this.serviceUrl + `/api/DeleteGroup${idGroup}`,)
+  }
+
+  public DeleteTeacher(idTeacher: any){
+    return this.http.delete<any>(this.serviceUrl + `/api/DeleteTeacher${idTeacher}`,)
+  }
+
+  public DeleteSchool(idSchool: any){
+    return this.http.delete<any>(this.serviceUrl + `/api/DeleteSchool${idSchool}`,)
+  }
+
+  public UpdateManager(manager: any){
+    return this.http.put<any>(this.serviceUrl + `/api/UpdateManager${manager.idManagement}`,manager)
+  }
+
+  public UpdateGroup(group: any){
+    return this.http.put<any>(this.serviceUrl + `/api/UpdateGroup${group.idGroup}`,group)
+  }
+
+  public UpdateTeacher(teacher: any){
+    return this.http.put<any>(this.serviceUrl + `/api/UpdateTeacher${teacher.idTeacher}`,teacher)
+  }
+
+  public UpdateSchool(school: any){
+    return this.http.put<any>(this.serviceUrl + `/api/UpdateSchool${school.idSchool}`,school)
+  }
 }

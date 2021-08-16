@@ -20,29 +20,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let manageItem of managerList">
+                    <tr *ngFor="let manageItem of managerList; let updateItem of updateManagers">
                         <th id="idManagement">{{manageItem.idManagement}}</th>
                         <td id="nameMana">
-                            <input ng-model="manageItem.name" value="{{manageItem.name}}"/>
+                            <input [(ngModel)]="updateItem.name" value="{{manageItem.name}}"/>
                         </td>
                         <td id="addressMana">
-                            <input ng-model="manageItem.address" value="{{manageItem.address}}" size="10"/>
+                            <input [(ngModel)]="updateItem.address" value="{{manageItem.address}}"/>
                         </td>
                         <td id="telephoneMana">
-                            <input ng-model="manageItem.telephone" value="{{manageItem.telephone}}" size="10"/>
+                            <input [(ngModel)]="updateItem.telephone" value="{{manageItem.telephone}}" size="10"/>
                         </td>
                         <td id="emailMana">
-                            <input ng-model="manageItem.email" value="{{manageItem.email}}" size="15"/>
+                            <input [(ngModel)]="updateItem.email" value="{{manageItem.email}}" size="20"/>
                         </td>
                         <td id="creationDateMana">{{manageItem.creationDate}}</td>
                         <td id="position">
-                            <input ng-model="manageItem.position" value="{{manageItem.position}}" size="1"/>
+                            <input [(ngModel)]="updateItem.position" value="{{manageItem.position}}" size="1"/>
                         </td>
                         <td id="password">
-                            <input ng-model="manageItem.position" value="{{manageItem.password}}" size="10"/>
+                            <input [(ngModel)]="updateItem.password" value="{{manageItem.password}}" />
                         </td>
-                        <td> <button class="btn btn-danger btn-sm">Delete</button></td>
-                        <td> <button class="btn btn-warning btn-sm">Update</button></td>
+                        <td> <button class="btn btn-danger btn-sm" (click)="DeleteManager(manageItem.idManagement)">Delete</button></td>
+                        <td> <button class="btn btn-warning btn-sm" (click)="UpdateManager(updateItem)">Update</button></td>
 
                     </tr>
                     <tr>    
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="mr-5 mb-5 ml-5 card col-5" id="gTable"  style="box-sizing: content-box;">
+    <div class="mr-5 mb-5 ml-5 card col-6" id="gTable"  style="box-sizing: content-box;">
         <div class="card-body">
             <h3 class="card-title">Groups</h3>
             <table class="table">
@@ -75,12 +75,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let groupItem of groupList">
+                    <tr *ngFor="let groupItem of groupList; let updateItem of updateGroups">
                         <th id="idGroup">{{groupItem.idGroup}}</th>
-                        <td id="name">{{groupItem.name}}</td>
+                        <td id="name">
+                            <input [(ngModel)]="updateItem.name" value="{{groupItem.name}}"/>
+                        </td>
                         <td id="creationDate">{{groupItem.creationDate}}</td>
-                        <td> <button class="btn btn-danger btn-sm">Delete</button></td>
-                        <td> <button class="btn btn-warning btn-sm">Update</button></td>
+                        <td> <button class="btn btn-danger btn-sm" (click)="DeleteGroup(groupItem.idGroup)">Delete</button></td>
+                        <td> <button class="btn btn-warning btn-sm" (click)="UpdateGroup(updateItem)">Update</button></td>
                     </tr>
                     <tr>    
                         <td></td>
@@ -93,7 +95,7 @@
         </div>
     </div>
 
-    <div class="ml-5 mb-5 mr-5 card col-6" id="tTable"  style="box-sizing: content-box;">
+    <div class="ml-5 mb-5 mr-5 card col-8" id="tTable"  style="box-sizing: content-box;">
         <div class="card-body">
             <h3 class="card-title">Teachers</h3>
             <table class="table">
@@ -109,14 +111,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let teacherItem of teacherList">
+                    <tr *ngFor="let teacherItem of teacherList; let updateItem of updateTeachers">
                         <th id="idTeacher">{{teacherItem.idTeacher}}</th>
-                        <td id="name">{{teacherItem.name}}</td>
-                        <td id="address">{{teacherItem.address}}</td>
-                        <td id="telephone">{{teacherItem.telephone}}</td>
-                        <td id="group">{{teacherItem.groupId}}</td>
-                        <td> <button class="btn btn-danger btn-sm">Delete</button></td>
-                        <td> <button class="btn btn-warning btn-sm">Update</button></td>
+                        <td id="name">
+                            <input [(ngModel)]="updateItem.name" value="{{teacherItem.name}}"/>
+                        </td>
+                        <td id="address">
+                            <input [(ngModel)]="updateItem.address" value="{{teacherItem.address}}"/>
+                        </td>
+                        <td id="telephone">
+                            <input [(ngModel)]="updateItem.telephone" value="{{teacherItem.telephone}}" size="11"/>
+                        </td>
+                        <td id="group">
+                            <input [(ngModel)]="updateItem.groupId" value="{{teacherItem.groupId}}" size="1"/>
+                        </td>
+                        <td> <button class="btn btn-danger btn-sm" (click)="DeleteTeacher(teacherItem.idTeacher)">Delete</button></td>
+                        <td> <button class="btn btn-warning btn-sm" (click)="UpdateTeacher(updateItem)">Update</button></td>
                     </tr>
                     <tr>    
                         <td></td>
@@ -151,17 +161,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let schoolItem of schoolList">
+                    <tr *ngFor="let schoolItem of schoolList; let updateItem of updateSchools">
                         <th id="idSchool">{{schoolItem.idSchool}}</th>
-                        <td id="name">{{schoolItem.name}}</td>
-                        <td id="registerNumber">{{schoolItem.registerNumber}}</td>
-                        <td id="address">{{schoolItem.address}}</td>
-                        <td id="telephone">{{schoolItem.telephone}}</td>
-                        <td id="schoolZone">{{schoolItem.schoolZone}}</td>
+                        <td id="name">
+                            <input [(ngModel)]="updateItem.name" value="{{schoolItem.name}}"/>
+                        </td>
+                        <td id="registerNumber">
+                            <input [(ngModel)]="updateItem.registerNumber" value="{{schoolItem.registerNumber}}" size="4"/>
+                        </td>
+                        <td id="address">
+                            <input [(ngModel)]="updateItem.address" value="{{schoolItem.address}}"/>
+                        </td>
+                        <td id="telephone">
+                            <input [(ngModel)]="updateItem.telephone" value="{{schoolItem.telephone}}" size="10"/>
+                        </td>
+                        <td id="schoolZone">
+                            <input [(ngModel)]="updateItem.schoolZone" value="{{schoolItem.schoolZone}}" size="4"/>
+                        </td>
                         <td id="creationDate">{{schoolItem.creationDate}}</td>
-                        <td id="director">{{schoolItem.director}}</td>
-                        <td> <button class="btn btn-danger btn-sm">Delete</button></td>
-                        <td> <button class="btn btn-warning btn-sm">Update</button></td>
+                        <td id="director">
+                            <input [(ngModel)]="updateItem.director" value="{{schoolItem.director}}"/>
+                        </td>
+                        <td> <button class="btn btn-danger btn-sm" (click)="DeleteSchool(schoolItem.idSchool)">Delete</button></td>
+                        <td> <button class="btn btn-warning btn-sm" (click)="UpdateSchool(updateItem)">Update</button></td>
                     </tr>
                     <tr>    
                         <td></td>
