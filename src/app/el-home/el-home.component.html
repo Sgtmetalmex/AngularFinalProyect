@@ -29,6 +29,16 @@
                         <td id="password">{{manageItem.password}}</td>
                         <td> <button class="btn btn-danger">Delete</button></td>
                     </tr>
+                    <tr>    
+                        <td></td>
+                        <td><input class="form-control" type="text" id="newName" [(ngModel)]="newManager.name" name="newName" /></td>
+                        <td><input class="form-control" type="text" id="newAddress" [(ngModel)]="newManager.address" name="newAddres"/></td>
+                        <td><input class="form-control" type="text" id="newEmail" [(ngModel)]="newManager.email" name="newEmail"/></td>
+                        <td><input class="form-control" type="text" id="newCreationDate" [(ngModel)]="newManager.creationDate" name="newCreationDate"/></td>
+                        <td><input class="form-control" type="text" id="newPosition" [(ngModel)]="newManager.postition" name="newPosition"/></td>
+                        <td><input class="form-control" type="text" id="newPassword" [(ngModel)]="newManager.password" name="newPassword"/></td>
+                        <td><button class="btn btn-primary" type="button" (click)="AddManager()">Add</button></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
