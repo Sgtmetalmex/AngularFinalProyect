@@ -18,6 +18,7 @@ export class ElHomeComponent implements OnInit {
   groupList: any = [];
   teacherList: any = [];
   schoolList: any = [];
+  public newManager: any = {};
 
 
   ngOnInit(): void {
@@ -31,8 +32,11 @@ export class ElHomeComponent implements OnInit {
       this.groupList = response.groups;
       this.teacherList = response.teachers;
       this.schoolList = response.schools;
-
       this.loadingPanel.hide();
     });
+  }
+
+  AddManager(){
+      this.newManager = {};
   }
 }
