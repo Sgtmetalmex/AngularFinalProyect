@@ -11,28 +11,30 @@ export class ElHomeComponent implements OnInit {
 
   constructor(
     public db: DatabaseService,
-    public loadingPanel: LoadingService
+    public loadingPanel: LoadingService,
   ) { }
+  pos: any = 0;
   
   managerList: any = [];
   updateManagers: any = [];
-
+  
   groupList: any = [];
   updateGroups: any = [];
-
+  
   teacherList: any = [];
   updateTeachers: any = [];
-
-
+  
+  
   schoolList: any = [];
   updateSchools: any = [];
-
+  
   public newManager: any = {};
   public newGroup: any = {};
   public newSchool: any = {};
   public newTeacher: any = {};
-    
+  
   ngOnInit(): void {
+    this.pos = localStorage.getItem("role");
     this.RetrieveTables();
   }
 
@@ -49,29 +51,49 @@ export class ElHomeComponent implements OnInit {
 
   AddManager() {
     this.db.AddNewManager(this.newManager).subscribe((response: any) => {
-
-      response > 0 ? window.location.reload() : alert("No Rows Inserted");
+      if(response > 0){
+        alert("Succesfully Added");
+        window.location.reload();
+      }   
+      else{
+        alert("No Rows Inserted");
+      }
     });
   }
 
   AddGroup() {
     this.db.AddNewGroup(this.newGroup).subscribe((response: any) => {
-
-      response > 0 ? window.location.reload() : alert("No Rows Inserted");
+      if(response > 0){
+        alert("Succesfully Added");
+        window.location.reload();
+      }   
+      else{
+        alert("No Rows Inserted");
+      }
     });
   }
 
   AddTeacher() {
     this.db.AddNewTeacher(this.newTeacher).subscribe((response: any) => {
-
-      response > 0 ? window.location.reload() : alert("No Rows Inserted");
+      if(response > 0){
+        alert("Succesfully Added");
+        window.location.reload();
+      }   
+      else{
+        alert("No Rows Inserted");
+      }
     });
   }
 
   AddSchool() {
     this.db.AddNewSchool(this.newSchool).subscribe((response: any) => {
-
-      response > 0 ? window.location.reload() : alert("No Rows Inserted");
+      if(response > 0){
+        alert("Succesfully Added");
+        window.location.reload();
+      }   
+      else{
+        alert("No Rows Inserted");
+      }
     });
   }
 

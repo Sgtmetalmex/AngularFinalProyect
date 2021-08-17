@@ -21,6 +21,7 @@ export class ElLoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    localStorage.clear();
   }
 
   ValidateUser() {
@@ -32,9 +33,13 @@ export class ElLoginComponent implements OnInit {
     this.loadingPanel.show();
 
     this.db.Login(user).subscribe((response: any) => {
-      let res = response;
-      res.data == "Incorrect Data" ? alert(res.data) : this.router.navigate(['/home']);;
+      let res = response;;
+
+     localStorage.setItem("role",res.position);
+       
+     !res ? alert("Incorrect Data"): this.router.navigate(['/home']);;
       
+
       this.loadingPanel.hide();
     });
   }
